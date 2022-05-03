@@ -17,14 +17,15 @@ def dijkstra(start):
 
     while q:
         cost, now = heapq.heappop(q)
-        # 방문 여부 확인
-        if distance[now] <= cost:
-            # start -> v 보다 start -> now -> v 가 더 짧으면 갱신하고 큐에 입력
-            for v, d in ad_list[now].items():
-                new_cost = cost + d
-                if distance[v] > new_cost:
-                    distance[v] = new_cost
-                    heapq.heappush(q, (new_cost, v))
+        # 처리 여부 확인
+        if distance[now] < cost:
+            continue
+        # start -> v 보다 start -> now -> v 가 더 짧으면 갱신하고 큐에 입력
+        for v, d in ad_list[now].items():
+            new_cost = cost + d
+            if distance[v] > new_cost:
+                distance[v] = new_cost
+                heapq.heappush(q, (new_cost, v))
 
     return distance
 

@@ -19,7 +19,7 @@ def dijkstra(start):
 
     while q:
         cost, now = heapq.heappop(q)
-        # 꺼낸 정점 까지의 거리가 크거나 같을 때만 실행 (방문 여부 대신 사용)
+        # 처리 여부 확인 (방문 여부 대신 사용)
         if distance[now] >= cost:
             # start -> now -> ad[0]
             for ad in ad_list[now]:
