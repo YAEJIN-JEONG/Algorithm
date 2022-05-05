@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
         # 첫 행에서 스위치를 누르는 경우에 누르기
         for j in range(10):
-            if i & (1 << j):
+            if i & (1 << j) != 0:
                 press(n_state, 0, j)
                 cnt += 1
 
