@@ -3,15 +3,15 @@
 def rec(u, v):
     if u == '':
         return u
+
+    u2, v2 = divide(v)
+
     if check(u):
-        u2, v2 = divide(v)
         return u + rec(u2, v2)
     else:
-        u2, v2 = divide(v)
         result = '(' + rec(u2, v2) + ')'
 
-        u = u[1:-1]
-        for c in u:
+        for c in u[1:-1]:
             result += ')' if c == '(' else '('
 
         return result
