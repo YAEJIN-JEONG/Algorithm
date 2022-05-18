@@ -11,7 +11,7 @@ def solution(info, query):
         s = inf.split()
         # 0000 ~ 1111, 네 가지 항목에 대해 1이면 포함 0이면 미포함('-')
         for i in range(1 << 4):
-            # 0001 ~ 1000 와 &연산 하여 포함 여부 결정
+            # 0001, 0010, 0100, 1000 와 &연산 하여 포함 여부 결정
             info_map[''.join([s[j] if (1 << j) & i != 0 else '-' for j in range(4)])].append(int(s[4]))
 
     # 이분 탐색 위해 정렬
