@@ -4,9 +4,6 @@ def solution(citations):
 
     answer = 0
     for i, citation in enumerate(citations):
-        if i + 1 >= citation:
-            answer = max(answer, citation)
-        else:
-            answer = max(answer, i + 1)
+        answer = max(answer, min(i + 1, citation))
 
     return answer
