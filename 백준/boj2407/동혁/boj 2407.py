@@ -1,4 +1,4 @@
-]import math
+import math
 n,m = map(int, input().split())
 
 #n!/ n-m! * m!
