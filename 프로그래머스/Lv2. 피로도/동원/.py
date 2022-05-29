@@ -7,8 +7,8 @@ def solution(k, dungeons):
     for case in cases:
         stemina = k
         res = 0
+        
         for required, consume in case:
-
             if stemina >= required:
                 stemina -= consume
                 res += 1
