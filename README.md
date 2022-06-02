@@ -12,7 +12,7 @@
 ## :exclamation: 주의사항
 
 - local repository 와 개인이 코드 짜는 IDE 프로젝트 공간 분리하기
-- 푼 문제 올리기 전에 <b>반드시 동기화</b> 하기 (branch 분리하지 않았기 때문에 매우 중요 !!)
+- 푼 문제 올리기 전에 <b>반드시 동기화</b> 하기 (pull & push)
 
 <br>
 
