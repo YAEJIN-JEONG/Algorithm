@@ -27,45 +27,31 @@ public class Q14500 {
         for (int i=0; i<n; i++) {
             for (int j=0; j<m; j++) {
                 visited[i][j] = true;
-                dfs(i, j, 0, 0);
+                dfs(i, j, 1, arr[i][j]);
                 visited[i][j] = false;
-                check(i, j);
             }
         }
         System.out.println(result);
-    }
-    private static void check(int x, int y) {
-        if (x >= 0 && x+2 < n && y >= 0 && y+1 < m) {
-            result = Math.max(result, arr[x][y] + arr[x+1][y] + arr[x+1][y+1] + arr[x+2][y]);
-        }
-        if (x-1 >= 0 && x < n && y >= 0 && y+2 < m) {
-            result = Math.max(result, arr[x][y] + arr[x-1][y+1] + arr[x][y+1] + arr[x][y+2]);
-        }
-        if (x >= 0 && x+2 < n && y-1 >= 0 && y < m) {
-            result = Math.max(result, arr[x][y] + arr[x+1][y-1] + arr[x+1][y] + arr[x+2][y]);
-        }
-        if (x >= 0 && x+1 < n && y >= 0 && y+2 < m) {
-            result = Math.max(result, arr[x][y] + arr[x][y+1] + arr[x+1][y+1] + arr[x][y+2]);
-        }
     }
     private static void dfs(int x, int y, int depth, int sum) {
         if (depth == 4) {
             result = Math.max(result, sum);
             return;
         }
-        sum += arr[x][y];
         int[][] d = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
         for (int i=0; i<4; i++) {
             int nowX = x + d[i][0];
             int nowY = y + d[i][1];
-            if (nowX < 0 || nowY < 0 || nowX >= n || nowY >= m) {
+            if (nowX < 0 || nowY < 0 || nowX >= n || nowY >= m || visited[nowX][nowY]) {
                 continue;
             }
-            if (!visited[nowX][nowY]) {
-                visited[nowX][nowY] = true;
-                dfs(nowX, nowY, depth + 1, sum);
-                visited[nowX][nowY] = false;
+
+            visited[nowX][nowY] = true;
+            dfs(nowX, nowY, depth + 1, sum + arr[nowX][nowY]);
+            if (depth == 2) {
+                dfs(x, y, depth + 1, sum + arr[nowX][nowY]);
             }
+            visited[nowX][nowY] = false;
         }
     }
 }
