@@ -1,6 +1,6 @@
 # 문제 해결력 키우기
 
-✨ Notion: https://www.notion.so/Algorithm-Study-e9a82c38fdd74dfb9a02fce93160047a
+✨ [Go to Notion](https://www.notion.so/Algorithm-Study-e9a82c38fdd74dfb9a02fce93160047a)
 
 <br>
 
