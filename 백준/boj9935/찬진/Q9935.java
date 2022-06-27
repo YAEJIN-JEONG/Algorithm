@@ -31,9 +31,8 @@ public class Q9935 {
             }
         }
         StringBuilder sb = new StringBuilder();
-        int size = stack.size();
-        for (int i=0; i<size; i++) {
-            sb.append(stack.pop());
+        for (Character c : stack) {
+            sb.append(c);
         }
         System.out.println(sb.length() == 0 ? "FRULA" : sb);
 
